@@ -1,9 +1,12 @@
 import React, { useContext, Fragment } from 'react';
+
 import Movie from './Movie';
-import { movieContext } from '../../context/movie/movieContext';
+import MovieContext from '../../context/movie/movieContext';
 
 const MovieList = () => {
-  const { movies } = useContext(movieContext);
+  const movieContext = useContext(MovieContext);
+
+  const { movies } = movieContext;
 
   return (
     <Fragment>

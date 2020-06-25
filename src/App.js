@@ -3,18 +3,18 @@ import './App.css';
 
 import Nav from './components/layout/Nav';
 import MovieList from './components/Movie/MovieList';
-import { MovieProvider } from './context/movie/movieContext';
 import AddMovie from './components/Movie/AddMovie';
+import MovieState from './context/movie/MovieState';
 
 function App() {
   return (
-    <MovieProvider>
+    <MovieState>
       <div className='App'>
         <Nav />
-        <AddMovie />
         <MovieList />
+        <AddMovie />
       </div>
-    </MovieProvider>
+    </MovieState>
   );
 }
 
