@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import './Movie.css';
+import MovieContext from '../../context/movie/movieContext';
 
 const Movie = (props) => {
+  const { removeMovie } = useContext(MovieContext);
+  const { id, name, price } = props.movie;
+
   return (
     <p>
-      <b>{props.name}:</b> {props.price}{' '}
-      <button className='button-delete'>X</button>
+      <b>{name}:</b> {price}{' '}
+      <button className='button-delete' onClick={() => removeMovie(id)}>
+        X
+      </button>
     </p>
   );
 };

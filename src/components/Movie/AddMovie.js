@@ -16,9 +16,22 @@ const AddMovie = () => {
     setPrice(e.target.value);
   };
 
+  const whiteSpaceHandle = (movieName) => {
+    return movieName.replace(/\s/g, '');
+  };
+
   const addMovie = (e) => {
     e.preventDefault();
-    setMovies({ id: name + '' + price, name: name, price: '$' + price });
+
+    if (name === '') {
+      alert('Criar um alerta');
+    } else {
+      setMovies({
+        id: whiteSpaceHandle(name) + '' + price,
+        name: name,
+        price: '$' + price,
+      });
+    }
   };
 
   return (

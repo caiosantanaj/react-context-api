@@ -5,13 +5,12 @@ import MovieContext from '../../context/movie/movieContext';
 
 const MovieList = () => {
   const movieContext = useContext(MovieContext);
-
   const { movies } = movieContext;
 
   return (
     <Fragment>
       {movies.map((movie) => (
-        <Movie key={movie.id} name={movie.name} price={movie.price} />
+        <Movie key={movie.id} movie={movie} />
       ))}
     </Fragment>
   );
