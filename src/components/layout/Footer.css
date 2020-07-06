@@ -1,0 +1,12 @@
+.Footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: #282c34;
+    padding: 0.15em 7em;
+}
+
+.logos > a:first-child {
+    margin-right: 0.5em;
+}

@@ -1,7 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
 import movieReucer from './movieReducer';
 import { ADD_MOVIE, REMOVE_MOVIE } from '../types';
-import movieContext from './movieContext';
+import MovieContext from './movieContext';
+import AlertContext from '../alert/alertContext';
 
 const MovieState = (props) => {
   const initialState = {
@@ -13,6 +14,7 @@ const MovieState = (props) => {
   };
 
   const [state, dispatch] = useReducer(movieReucer, initialState);
+  const { setAlert } = useContext(AlertContext);
 
   const setMovies = (movie) => {
     const mvs = state.movies;
@@ -24,11 +26,14 @@ const MovieState = (props) => {
       }
     }
 
-    if (!contains)
+    if (!contains) {
       dispatch({
         type: ADD_MOVIE,
         payload: movie,
       });
+    } else {
+      setAlert('Error: This movie is already on the list');
+    }
   };
 
   const removeMovie = (id) => {
@@ -45,11 +50,11 @@ const MovieState = (props) => {
   };
 
   return (
-    <movieContext.Provider
+    <MovieContext.Provider
       value={{ movies: state.movies, setMovies, removeMovie }}
     >
       {props.children}
-    </movieContext.Provider>
+    </MovieContext.Provider>
   );
 };
 

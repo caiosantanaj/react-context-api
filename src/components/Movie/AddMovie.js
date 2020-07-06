@@ -1,12 +1,16 @@
 import React, { useState, useContext } from 'react';
 
 import './AddMovie.css';
-import { movieContext } from '../../context/movie/movieContext';
+
+import MovieContext from '../../context/movie/movieContext';
+import AlertContext from '../../context/alert/alertContext';
+import Alert from '../layout/Alert';
 
 const AddMovie = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
-  const { setMovies } = useContext(movieContext);
+  const { setMovies } = useContext(MovieContext);
+  const { setAlert } = useContext(AlertContext);
 
   const updateName = (e) => {
     setName(e.target.value);
@@ -24,7 +28,7 @@ const AddMovie = () => {
     e.preventDefault();
 
     if (name === '') {
-      alert('Criar um alerta');
+      setAlert('Error: Fields are empty');
     } else {
       setMovies({
         id: whiteSpaceHandle(name) + '' + price,
@@ -51,6 +55,7 @@ const AddMovie = () => {
         onChange={updatePrice}
       />
       <button>Submit</button>
+      <Alert />
     </form>
   );
 };
