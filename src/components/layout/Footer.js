@@ -3,14 +3,14 @@ import React, { useContext } from 'react';
 import './Footer.css';
 import githubLogo from '../../resources/img/GitHub-Mark-Light-32px.png';
 import linkedinLogo from '../../resources/img/LI-In-Bug-white-32.png';
-import MovieContext from '../../context/movie/movieContext';
+import ItemContext from '../../context/item/itemContext';
 
 const Footer = () => {
-  const { movies } = useContext(MovieContext);
+  const { items } = useContext(ItemContext);
 
   return (
     <div className='Footer'>
-      <p>Movies: {movies.length}</p>
+      <p>Items: {items.length}</p>
       <div className='logos'>
         <a href='https://www.linkedin.com/in/caiosantanaj/'>
           <img src={linkedinLogo} alt='linkedin logo' />

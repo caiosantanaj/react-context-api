@@ -1,18 +1,18 @@
-import { ADD_MOVIE, REMOVE_MOVIE } from '../types';
+import { ADD_ITEM, REMOVE_ITEM } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
-    case ADD_MOVIE: {
+    case ADD_ITEM: {
       return {
         ...state,
-        movies: [...state.movies, action.payload],
+        items: [...state.items, action.payload],
       };
     }
 
-    case REMOVE_MOVIE: {
+    case REMOVE_ITEM: {
       return {
         ...state,
-        movies: action.payload,
+        items: action.payload,
       };
     }
 

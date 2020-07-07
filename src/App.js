@@ -1,31 +1,31 @@
 import React from 'react';
 import './App.css';
 
-import MovieState from './context/movie/MovieState';
+import ItemState from './context/item/ItemState';
 import AlertState from './context/alert/AlertState';
 
 import Nav from './components/layout/Nav';
-import MovieList from './components/Movie/MovieList';
-import AddMovie from './components/Movie/AddMovie';
+import ItemList from './components/Item/ItemList';
+import AddItem from './components/Item/AddItem';
 import Footer from './components/layout/Footer';
 
 function App() {
   return (
     <AlertState>
-      <MovieState>
+      <ItemState>
         <div className='App'>
           <Nav />
           <div className='Container'>
-            <div className='Movies'>
-              <MovieList />
+            <div className='Items'>
+              <ItemList />
             </div>
             <div className='Form'>
-              <AddMovie />
+              <AddItem />
             </div>
           </div>
           <Footer />
         </div>
-      </MovieState>
+      </ItemState>
     </AlertState>
   );
 }

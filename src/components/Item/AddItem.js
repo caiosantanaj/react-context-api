@@ -1,15 +1,15 @@
 import React, { useState, useContext } from 'react';
 
-import './AddMovie.css';
+import './AddItem.css';
 
-import MovieContext from '../../context/movie/movieContext';
+import ItemContext from '../../context/item/itemContext';
 import AlertContext from '../../context/alert/alertContext';
 import Alert from '../layout/Alert';
 
-const AddMovie = () => {
+const AddItem = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
-  const { setMovies } = useContext(MovieContext);
+  const { setItems } = useContext(ItemContext);
   const { setAlert } = useContext(AlertContext);
 
   const updateName = (e) => {
@@ -20,17 +20,17 @@ const AddMovie = () => {
     setPrice(e.target.value);
   };
 
-  const whiteSpaceHandle = (movieName) => {
-    return movieName.replace(/\s/g, '');
+  const whiteSpaceHandle = (itemName) => {
+    return itemName.replace(/\s/g, '');
   };
 
-  const addMovie = (e) => {
+  const addItem = (e) => {
     e.preventDefault();
 
     if (name === '') {
       setAlert('Error: Fields are empty');
     } else {
-      setMovies({
+      setItems({
         id: whiteSpaceHandle(name) + '' + price,
         name: name,
         price: '$' + price,
@@ -39,11 +39,11 @@ const AddMovie = () => {
   };
 
   return (
-    <form className='movie-form' onSubmit={addMovie}>
+    <form className='item-form' onSubmit={addItem}>
       <input
         type='text'
         name='name'
-        placeholder='Name of the movie...'
+        placeholder='Name of the item...'
         value={name}
         onChange={updateName}
       />
@@ -60,4 +60,4 @@ const AddMovie = () => {
   );
 };
 
-export default AddMovie;
+export default AddItem;

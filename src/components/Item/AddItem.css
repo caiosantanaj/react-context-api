@@ -2,17 +2,17 @@ button {
     cursor: pointer;
 }
 
-.movie-form {
+.item-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.movie-form input {
+.item-form input {
     margin: 10px 0px;
     width: 500px;
 }
 
-.movie-form button {
+.item-form button {
     width: 200px;
 }
